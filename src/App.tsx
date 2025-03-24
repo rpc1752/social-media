@@ -5,7 +5,7 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import { Box } from "@mui/material";
+import { Box, useTheme, useMediaQuery } from "@mui/material";
 import { AppBar } from "./components/AppBar";
 import { Feed } from "./pages/Feed";
 import { Login } from "./pages/Login";
@@ -30,8 +30,17 @@ const PublicRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 };
 
 const AppContent: React.FC = () => {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   return (
-    <Box sx={{ minHeight: "100vh", bgcolor: "background.default" }}>
+    <Box
+      sx={{
+        minHeight: "100vh",
+        bgcolor: "background.default",
+        paddingTop: "64px", // Account for the fixed AppBar
+      }}
+    >
       <AppBar />
       <Routes>
         <Route path="/" element={<Feed />} />

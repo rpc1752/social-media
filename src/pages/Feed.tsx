@@ -6,6 +6,7 @@ import {
   Container,
   Fade,
   useTheme,
+  useMediaQuery,
 } from "@mui/material";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { Post as PostComponent } from "../components/Post";
@@ -37,6 +38,7 @@ export const Feed: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const { user } = useAuth();
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const fetchPosts = async () => {
     try {
@@ -295,6 +297,7 @@ export const Feed: React.FC = () => {
       sx={{
         py: { xs: 2, sm: 4 },
         px: { xs: 1, sm: 2, md: 3 },
+        pb: isMobile ? "70px" : undefined,
       }}
     >
       <Fade in timeout={800}>

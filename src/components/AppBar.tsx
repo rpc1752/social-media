@@ -146,6 +146,7 @@ export const AppBar: React.FC = () => {
                   backgroundColor: "background.paper",
                   borderTop: "1px solid #eeeeee",
                   py: 1,
+                  height: "60px",
                   zIndex: theme.zIndex.appBar,
                 }}
               >
