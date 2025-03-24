@@ -9,7 +9,6 @@ import {
   Menu,
   MenuItem,
   Avatar,
-  Badge,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
@@ -86,7 +85,7 @@ export const AppBar: React.FC = () => {
               color: "inherit",
             }}
           >
-            Threads
+            SocialShare
           </Typography>
         )}
 
